@@ -5692,11 +5692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\polia\\source\\repos\\WebDriver-HomeTask\\TestMailLoginPassword\\WebDriverHomeTask.csproj",
-      "projectName": "WebDriverHomeTask",
-      "projectPath": "C:\\Users\\polia\\source\\repos\\WebDriver-HomeTask\\TestMailLoginPassword\\WebDriverHomeTask.csproj",
+      "projectUniqueName": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
+      "projectName": "Locators",
+      "projectPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
       "packagesPath": "C:\\Users\\polia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\polia\\source\\repos\\WebDriver-HomeTask\\TestMailLoginPassword\\obj\\",
+      "outputPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\polia\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using WebDriverHomeTask.Pages;
+using Locators.Pages;
 
 
-namespace WebDriverHomeTask.Tests
+namespace Locators.Tests
 {
     public class BaseTest
     {
-        readonly String test_url = "https://www.google.com.ua/";
+        readonly String test_url = "https://www.gmail.com/";
         IWebDriver driver = new ChromeDriver();
 
         [TestInitialize]

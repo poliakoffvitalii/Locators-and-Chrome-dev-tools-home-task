@@ -9,25 +9,34 @@ using SeleniumExtras.WaitHelpers;
 using SeleniumExtras.PageObjects;
 
 
-namespace WebDriverHomeTask.Tests
+namespace Locators.Tests
 {
 
     [TestClass]
     public class Part : BaseTest
     {
-        private static long DEFAULT_TIMEOUT = 40;
+        private static long DEFAULT_TIMEOUT = 20;
 
         [TestMethod]
-        [DataRow("dog")]
+        [DataRow("boriszimmerman6", "12a34b56", "polvit@meta.ua", "Good morning", "Have a nice day")]
 
-        public void WebDriverHomeTask(string Item)
+        public void WebDriverHomeTask(string login, string pass, string email, string topic, string text)
         {
-            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetImageBotton());
-            getHomePage().ClickImageBotton();
-            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetSearchIcon());
-            getHomePage().InputSearch(Item);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetIdField());
+            getHomePage().InputLogin(login);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetPassField());
+            getHomePage().InputPass(pass);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetWriteLetterBotton());
+            getHomePage().ClickWriteLetterBotton();
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetRecipient());
+            getHomePage().InputRecipient(email);
             getHomePage().WaitLittle(DEFAULT_TIMEOUT);
-            getHomePage().CheckResult();
+            getHomePage().InputSubject(topic);
+            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
+            getHomePage().InputText(text);
+            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
+            getHomePage().ClickSendBotton();
+            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
         }
     }
 }

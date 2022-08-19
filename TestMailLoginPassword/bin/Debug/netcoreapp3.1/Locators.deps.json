@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "WebDriverHomeTask/1.0.0": {
+      "Locators/1.0.0": {
         "dependencies": {
           "DotNetSeleniumExtras.PageObjects.Core": "4.3.0",
           "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
@@ -19,7 +19,7 @@
           "coverlet.collector": "1.2.0"
         },
         "runtime": {
-          "WebDriverHomeTask.dll": {}
+          "Locators.dll": {}
         }
       },
       "coverlet.collector/1.2.0": {},
@@ -1054,7 +1054,7 @@
     }
   },
   "libraries": {
-    "WebDriverHomeTask/1.0.0": {
+    "Locators/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

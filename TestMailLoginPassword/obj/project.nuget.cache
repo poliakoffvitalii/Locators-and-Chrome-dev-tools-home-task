@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n8n8kw7qpQoWI9fbGXQvVTaGS67Xgkmm/LTr2GdC/btjpR7VnzpLjpmNdlQ3CXnhRUyPtCrHigjQTQZTVJ7aXw==",
+  "dgSpecHash": "h2x9IFyxGR4P6SC8RrL2P3qzK+QA7GfzMaiNxY/Z/nAF3pGp+xBuVEHMjjMpNq13WQZYRrfGfKwUejopzn32rQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\polia\\source\\repos\\WebDriver-HomeTask\\TestMailLoginPassword\\WebDriverHomeTask.csproj",
+  "projectFilePath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\polia\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\polia\\.nuget\\packages\\dotnetseleniumextras.pageobjects.core\\4.3.0\\dotnetseleniumextras.pageobjects.core.4.3.0.nupkg.sha512",

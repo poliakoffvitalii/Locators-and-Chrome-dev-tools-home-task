@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\WebDriverHomeTask.csproj": {}
+    "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj": {}
   },
   "projects": {
-    "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\WebDriverHomeTask.csproj": {
+    "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\WebDriverHomeTask.csproj",
-        "projectName": "WebDriverHomeTask",
-        "projectPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\WebDriverHomeTask.csproj",
+        "projectUniqueName": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
+        "projectName": "Locators",
+        "projectPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
         "packagesPath": "C:\\Users\\polia\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\obj\\",
         "projectStyle": "PackageReference",

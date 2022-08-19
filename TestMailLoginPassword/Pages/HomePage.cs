@@ -9,8 +9,9 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
-namespace WebDriverHomeTask.Pages
+namespace Locators.Pages
 {
     public class HomePage : BasePage
     {
@@ -18,58 +19,87 @@ namespace WebDriverHomeTask.Pages
         {
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='gb']/div/div[1]/div/div[2]/a")]
-        private readonly IWebElement ImageBotton;
+        [FindsBy(How = How.Id, Using = "identifierId")]
+        private readonly IWebElement IdField;
 
-        [FindsBy(How = How.XPath, Using = "//html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")]
-        private readonly IWebElement InputField;
+        [FindsBy(How = How.Name, Using = "password")]
+        private readonly IWebElement PassField;
 
-        [FindsBy(How = How.XPath, Using = "//html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/button")]
-        private readonly IWebElement SearchIcon;
+        [FindsBy(How = How.XPath, Using = "//div[@class='T-I T-I-KE L3']")]
+        private readonly IWebElement WriteLetterBotton;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='islrg']/div[1]/*/a[1]/div[1]/img")]
-        private IList<IWebElement> SearchResult;
+        [FindsBy(How = How.CssSelector, Using = "div.afx input")]
+        private readonly IWebElement Recipient;
 
-        public IWebElement GetImageBotton()
+        [FindsBy(How = How.XPath, Using = "//input[@name='subjectbox']")]
+        private readonly IWebElement Subject;
+
+        [FindsBy(How = How.XPath, Using = "//div[@aria-label='Текст повідомлення']")]
+        private readonly IWebElement Text;
+
+        [FindsBy(How = How.XPath, Using = "//div[contains(@data-tooltip,'Надіслати')]")]
+        private readonly IWebElement SendBotton;
+        
+        public IWebElement GetIdField()
         {
-            return ImageBotton;
+            return IdField;
+        }
+        public IWebElement GetPassField()
+        {
+            return PassField;
         }
 
-        public void ClickImageBotton()
+        public void InputLogin(string Login)
         {
-            ImageBotton.Click();
+            IdField.Clear();
+            IdField.SendKeys(Login + Keys.Enter);
         }
-
-        public IWebElement GetInputField()
+        public void InputPass(string Pass)
         {
-            return InputField;
+            PassField.Clear();
+            PassField.SendKeys(Pass + Keys.Enter);
         }
-        public IWebElement GetSearchIcon()
+        public IWebElement GetWriteLetterBotton()
         {
-            return SearchIcon;
+            return WriteLetterBotton;
         }
-
-        public void ClickSearchIcon()
+        public void ClickWriteLetterBotton()
         {
-            SearchIcon.Click();
+            WriteLetterBotton.Click();
         }
-
-        public void InputSearch(string Item)
+        public IWebElement GetRecipient()
         {
-            InputField.Clear();
-            InputField.SendKeys(Item);
-            ClickSearchIcon();
+            return Recipient;
         }
-        public IList<IWebElement> GetSearchResult()
+        public void InputRecipient(string Email)
         {
-            return SearchResult;
+            Recipient.SendKeys(Email);
         }
-        public void CheckResult()
+        public IWebElement GetSubject()
         {
-            foreach (IWebElement item in SearchResult)
-            {
-                Assert.IsTrue(item.GetAttribute("src").Contains("image"));
-            }
+            return Subject;
+        }
+        public void InputSubject(string Topic)
+        {
+            Subject.SendKeys(Topic);
+        }
+        public IWebElement GetText()
+        {
+            return Text;
+        }
+        public void InputText(string Textmess)
+        {
+            Text.SendKeys(Textmess);
+        }
+        public IWebElement GetSendBotton()
+        {
+            return SendBotton;
+        }
+        public void ClickSendBotton()
+        {
+            Thread.Sleep(3000);
+            SendBotton.Click();
+            Thread.Sleep(3000);
         }
     }
 }

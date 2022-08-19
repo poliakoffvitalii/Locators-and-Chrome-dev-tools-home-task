@@ -6,7 +6,7 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 
-namespace WebDriverHomeTask.Pages
+namespace Locators.Pages
 {
     public class BasePage
     {
