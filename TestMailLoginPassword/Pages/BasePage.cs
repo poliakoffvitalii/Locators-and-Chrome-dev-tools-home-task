@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 
-namespace Locators.Pages
+namespace Saucedemo.Pages
 {
     public class BasePage
     {
@@ -23,7 +21,7 @@ namespace Locators.Pages
             wait.Until(ExpectedConditions.ElementToBeClickable(element));
         }
 
-        public void WaitLittle(long timeToWait)
+        public void WaitABit(long timeToWait)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(timeToWait);

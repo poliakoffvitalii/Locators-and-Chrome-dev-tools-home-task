@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using SeleniumExtras.WaitHelpers;
-using OpenQA.Selenium.Chrome;
-using System.Threading;
 
-namespace Locators.Pages
+namespace Saucedemo.Pages
 {
     public class HomePage : BasePage
     {
@@ -19,87 +9,49 @@ namespace Locators.Pages
         {
         }
 
-        [FindsBy(How = How.Id, Using = "identifierId")]
-        private readonly IWebElement IdField;
+        [FindsBy(How = How.XPath, Using = "//*[@id='user-name']")]
+        private readonly IWebElement UserName;
 
-        [FindsBy(How = How.Name, Using = "password")]
-        private readonly IWebElement PassField;
+        [FindsBy(How = How.XPath, Using = "//*[@id='password']")]
+        private readonly IWebElement Password;
 
-        [FindsBy(How = How.XPath, Using = "//div[@class='T-I T-I-KE L3']")]
-        private readonly IWebElement WriteLetterBotton;
+        [FindsBy(How = How.XPath, Using = "//*[@id='login-button']")]
+        private readonly IWebElement LoginBotton;
 
-        [FindsBy(How = How.CssSelector, Using = "div.afx input")]
-        private readonly IWebElement Recipient;
+        [FindsBy(How = How.XPath, Using = "//*[@id='login_button_container']/div/form/div[3]/h3")]
+        private readonly IWebElement ErrorBox;
 
-        [FindsBy(How = How.XPath, Using = "//input[@name='subjectbox']")]
-        private readonly IWebElement Subject;
 
-        [FindsBy(How = How.XPath, Using = "//div[@aria-label='Текст повідомлення']")]
-        private readonly IWebElement Text;
-
-        [FindsBy(How = How.XPath, Using = "//div[contains(@data-tooltip,'Надіслати')]")]
-        private readonly IWebElement SendBotton;
-        
-        public IWebElement GetIdField()
+        public IWebElement GetUserNameField()
         {
-            return IdField;
+            return UserName;
         }
-        public IWebElement GetPassField()
+        public IWebElement GetPasswordField()
         {
-            return PassField;
+            return Password;
         }
 
-        public void InputLogin(string Login)
+        public void InputUserName(string UserName)
         {
-            IdField.Clear();
-            IdField.SendKeys(Login + Keys.Enter);
+            this.UserName.Clear();
+            this.UserName.SendKeys(UserName);
         }
-        public void InputPass(string Pass)
+        public void InputPassword(string Password)
         {
-            PassField.Clear();
-            PassField.SendKeys(Pass + Keys.Enter);
+            this.Password.Clear();
+            this.Password.SendKeys(Password);
         }
-        public IWebElement GetWriteLetterBotton()
+        public IWebElement GetLoginBotton()
         {
-            return WriteLetterBotton;
+            return LoginBotton;
         }
-        public void ClickWriteLetterBotton()
+        public void ClickLoginBotton()
         {
-            WriteLetterBotton.Click();
+            LoginBotton.Click();
         }
-        public IWebElement GetRecipient()
+        public IWebElement GetError()
         {
-            return Recipient;
-        }
-        public void InputRecipient(string Email)
-        {
-            Recipient.SendKeys(Email);
-        }
-        public IWebElement GetSubject()
-        {
-            return Subject;
-        }
-        public void InputSubject(string Topic)
-        {
-            Subject.SendKeys(Topic);
-        }
-        public IWebElement GetText()
-        {
-            return Text;
-        }
-        public void InputText(string Textmess)
-        {
-            Text.SendKeys(Textmess);
-        }
-        public IWebElement GetSendBotton()
-        {
-            return SendBotton;
-        }
-        public void ClickSendBotton()
-        {
-            Thread.Sleep(3000);
-            SendBotton.Click();
-            Thread.Sleep(3000);
+            return ErrorBox;
         }
     }
 }

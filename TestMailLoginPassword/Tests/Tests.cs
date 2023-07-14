@@ -1,42 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using SeleniumExtras.PageObjects;
+using System.Diagnostics;
+using TestContext = Microsoft.VisualStudio.TestTools.UnitTesting.TestContext;
 
+[assembly: Parallelize(Workers = 3, Scope = ExecutionScope.MethodLevel)]
 
-namespace Locators.Tests
+namespace Saucedemo.Tests
 {
-
     [TestClass]
-    public class Part : BaseTest
+    public class Tests : BaseTest
     {
         private static long DEFAULT_TIMEOUT = 20;
 
-        [TestMethod]
-        [DataRow("boriszimmerman6", "12a34b56", "polvit@meta.ua", "Good morning", "Have a nice day")]
-
-        public void WebDriverHomeTask(string login, string pass, string email, string topic, string text)
+        private TestContext testContext;
+        public TestContext TestContext
         {
-            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetIdField());
-            getHomePage().InputLogin(login);
-            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetPassField());
-            getHomePage().InputPass(pass);
-            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetWriteLetterBotton());
-            getHomePage().ClickWriteLetterBotton();
-            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetRecipient());
-            getHomePage().InputRecipient(email);
-            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
-            getHomePage().InputSubject(topic);
-            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
-            getHomePage().InputText(text);
-            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
-            getHomePage().ClickSendBotton();
-            getHomePage().WaitLittle(DEFAULT_TIMEOUT);
+            get { return testContext; }
+            set { testContext = value; }
+        }
+        private void Log(string message)
+        {
+            string testName = TestContext.TestName;
+            string className = TestContext.FullyQualifiedTestClassName;
+            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {className}.{testName}: {message}";
+            Trace.WriteLine(logMessage);
+        }
+
+        [DataTestMethod]
+        [DataRow("eeeee", "tttttt", "Username is required")]
+
+        public void TestLoginFormWithEmptyCredentials(string user_name, string password, string error_text)
+        {
+            Log("Starting TestLoginFormWithEmptyCredentials");
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetUserNameField());
+            getHomePage().InputUserName(user_name);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetPasswordField());
+            getHomePage().InputPassword(password);
+            getHomePage().GetUserNameField().SendKeys(Keys.Control + "A");
+            getHomePage().GetUserNameField().SendKeys(Keys.Backspace);
+            getHomePage().GetPasswordField().SendKeys(Keys.Control + "A");
+            getHomePage().GetPasswordField().SendKeys(Keys.Backspace);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetLoginBotton());
+            getHomePage().ClickLoginBotton();
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetError());
+            Assert.IsTrue(getHomePage().GetError().Text.Contains(error_text));
+            Log("TestLoginFormWithEmptyCredentials passed successfully");
+        }
+
+        [DataTestMethod]
+        [DataRow("ddddd", "lllll", "Password is required")]
+
+        public void TestLoginFormWithCredentialsByPassingUsername(string user_name, string password, string error_text)
+        {
+            Log("Starting TestLoginFormWithCredentialsByPassingUsername");
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetUserNameField());
+            getHomePage().InputUserName(user_name);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetPasswordField());
+            getHomePage().InputPassword(password);
+            getHomePage().GetPasswordField().SendKeys(Keys.Control + "A");
+            getHomePage().GetPasswordField().SendKeys(Keys.Backspace);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetLoginBotton());
+            getHomePage().ClickLoginBotton();
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetError());
+            Assert.IsTrue(getHomePage().GetError().Text.Contains(error_text));
+            Log("TestLoginFormWithCredentialsByPassingUsername passed successfully");
+        }
+
+        [DataTestMethod]
+        [DataRow("standard_user", "secret_sauce", "Swag Labs")]
+
+        public void TestLoginFormWithCredentialsByPassingUsernameAndPassword(string user_name, string password, string header)
+        {
+            Log("Starting TestLoginFormWithCredentialsByPassingUsernameAndPassword");
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetUserNameField());
+            getHomePage().InputUserName(user_name);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetPasswordField());
+            getHomePage().InputPassword(password);
+            getHomePage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getHomePage().GetLoginBotton());
+            getHomePage().ClickLoginBotton();
+            getInventoryPage().WaitClickabilityOfElement(DEFAULT_TIMEOUT, getInventoryPage().GetHeader());
+            Assert.IsTrue(getInventoryPage().GetHeader().Text.Equals(header));
+            Log("TestLoginFormWithCredentialsByPassingUsernameAndPassword passed successfully");
         }
     }
 }

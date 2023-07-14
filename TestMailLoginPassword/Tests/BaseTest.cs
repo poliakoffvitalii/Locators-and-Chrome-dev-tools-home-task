@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using Locators.Pages;
+using Saucedemo.Pages;
 
 
-namespace Locators.Tests
+namespace Saucedemo.Tests
 {
     public class BaseTest
     {
-        readonly String test_url = "https://www.gmail.com/";
+        readonly String test_url = "https://www.saucedemo.com/";
         IWebDriver driver = new ChromeDriver();
 
         [TestInitialize]
@@ -36,6 +32,10 @@ namespace Locators.Tests
         public HomePage getHomePage()
         {
             return new HomePage(getDriver());
+        }
+        public InventoryPage getInventoryPage()
+        {
+            return new InventoryPage(getDriver());
         }
     }
 }

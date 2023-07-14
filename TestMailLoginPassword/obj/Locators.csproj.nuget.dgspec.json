@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj": {}
+    "C:\\Users\\polia\\source\\repos\\saucedemo-4\\TestMailLoginPassword\\Locators.csproj": {}
   },
   "projects": {
-    "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj": {
+    "C:\\Users\\polia\\source\\repos\\saucedemo-4\\TestMailLoginPassword\\Locators.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
+        "projectUniqueName": "C:\\Users\\polia\\source\\repos\\saucedemo-4\\TestMailLoginPassword\\Locators.csproj",
         "projectName": "Locators",
-        "projectPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\Locators.csproj",
+        "projectPath": "C:\\Users\\polia\\source\\repos\\saucedemo-4\\TestMailLoginPassword\\Locators.csproj",
         "packagesPath": "C:\\Users\\polia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\polia\\source\\repos\\Locators and Chrome dev tools home task\\TestMailLoginPassword\\obj\\",
+        "outputPath": "C:\\Users\\polia\\source\\repos\\saucedemo-4\\TestMailLoginPassword\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\polia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,31 +50,45 @@
             },
             "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[3.0.4, )"
             },
             "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[3.0.4, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.5.0, )"
+              "version": "[17.6.3, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             },
             "Selenium.Support": {
               "target": "Package",
-              "version": "[4.4.0, )"
+              "version": "[4.10.0, )"
             },
             "Selenium.WebDriver": {
               "target": "Package",
-              "version": "[4.4.0, )"
+              "version": "[4.10.0, )"
             },
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
-              "version": "[104.0.5112.7900, )"
+              "version": "[114.0.5735.9000, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -93,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

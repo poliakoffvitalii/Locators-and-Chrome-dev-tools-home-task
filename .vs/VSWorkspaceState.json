@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\TestMailLoginPassword",
-    "\\TestMailLoginPassword\\Pages"
+    "\\TestMailLoginPassword\\Pages",
+    "\\TestMailLoginPassword\\Tests"
   ],
-  "SelectedNode": "\\TestMailLoginPassword\\Pages\\BasePage.cs",
+  "SelectedNode": "\\TestMailLoginPassword\\Tests\\Tests.cs",
   "PreviewInSolutionExplorer": false
 }
